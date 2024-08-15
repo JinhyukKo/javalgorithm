@@ -9,22 +9,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[] dp = new int[N+1];
-        fact(dp,N);
+        long[] dp = new long[1001];
 
-    }
-    public static void fact(int[] dp,int n){
+
         dp[0]=1;
-        for(int i =1;i<n;i++){
-            dp[i]= dp[i-1]*i;
-
+        dp[1]=1;
+        dp[2]=2;
+        for(int i =3;i<=N;i++) {
+            dp[i] = (dp[i - 1] + dp[i-2])%10007;
         }
-    }
-    public static void comb(int n,int r){
+
+        System.out.println(dp[N]%10007);
+
+
 
     }
+
 }
-
 
 
 
