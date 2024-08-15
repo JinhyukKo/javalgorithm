@@ -12,16 +12,17 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int[] nums = new int[N];
-        int[] accumulation = new int[N];
+
         for(int i = 0 ; i<N;i++){
             nums[i]=Integer.parseInt(st.nextToken());
         }
         Arrays.sort(nums);
-        accumulation[0]=nums[0];
+        int prev = nums[0];
         int sum = nums[0];
         for(int i=1;i<N;i++){
-            accumulation[i] += accumulation[i-1] + nums[i];
-            sum += accumulation[i];
+
+           prev += nums[i];
+           sum += prev;
         }
 
         System.out.println(sum);
